@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="{{language}}">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 input fields i18n test</title>
+</head>
+<body>
+
+<main>
+  <section>
+    <p>Date</p>
+    <input type="date" value="1994-11-06">
+    <pre id="output-date"></pre>
+  </section>
+
+  <section>
+    <p>Month</p>
+    <input type="month" value="1994-11">
+    <pre id="output-month"></pre>
+  </section>
+
+  <section>
+    <p>Week</p>
+    <input type="week" value="2016-W33">
+    <pre id="output-week"></pre>
+  </section>
+
+  <section>
+    <p>Time</p>
+    <input type="time" value="23:59">
+    <pre id="output-time"></pre>
+  </section>
+
+  <section>
+    <p>Datetime</p>
+    <input type="datetime-local" value="2016-08-28T23:59">
+    <pre id="output-datetime-local"></pre>
+  </section>
+
+  <section>
+    <p>Number</p>
+    <input type="number" value="1999.99" step=".01">
+    <pre id="output-number"></pre>
+  </section>
+</main>
+
+<script>
+document.querySelectorAll('input').forEach(function (input) {
+  var output = document.getElementById('output-' + input.type);
+  var update = function () {
+    output.innerHTML = input.value;
+  };
+
+  input.addEventListener('change', update);
+  update();
+});
+</script>
+
+</body>
+</html>
